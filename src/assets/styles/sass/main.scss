@@ -1,13 +1,15 @@
-@charset 'UTF-8';
 
-@import
-  '~bootstrap/scss/functions',
-  '~bootstrap/scss/variables',
-  '~bootstrap/scss/mixins',
-  '~bootstrap/scss/print',
-  '~bootstrap/scss/reboot',
-  '~bootstrap/scss/type';
-  
+@charset 'UTF-8';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+// @import
+//   '~bootstrap/scss/functions',
+//   '~bootstrap/scss/variables',
+//   '~bootstrap/scss/mixins',
+//   '~bootstrap/scss/print',
+//   '~bootstrap/scss/reboot',
+//   '~bootstrap/scss/type';
+
 // 1. Configuration and helpers
 @import
   'abstracts/variables',
