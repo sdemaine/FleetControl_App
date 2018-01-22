@@ -1,35 +1,55 @@
 // -----------------------------------------------------------------------------
 // This file contains very basic styles.
 // -----------------------------------------------------------------------------
-
 /**
  * Set up a decent box model on the root element
  */
+
 html {
   box-sizing: border-box;
 }
-
 /**
  * Make all elements from the DOM inherit from the parent box-sizing
  * Since `*` has a specificity of 0, it does not override the `html` value
  * making all elements inheriting from the root box-sizing value
  * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
  */
+
 *,
-*::before,
-*::after {
+*::after,
+*::before {
   box-sizing: inherit;
 }
-
 /**
  * Basic styles for links
  */
-a {
-  color: $brand-color;
-  text-decoration: none;
 
+a {
   @include on-event {
     color: $text-color;
     text-decoration: underline;
   }
+}
+/* nav bar */
+
+.nav li:not(:first-child) {
+  padding-left: 20px;
+
+  a {
+    color: #555;
+    text-decoration: none;
+
+    &:hover {
+      color: $brand-color;
+    }
+  }
+}
+
+.page-container {
+  margin-top: 30px;
+  margin-left: 50px;
+}
+
+.navbarClass {
+  background-color: orange;
 }
