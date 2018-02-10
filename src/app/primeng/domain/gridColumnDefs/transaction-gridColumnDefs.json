@@ -1,11 +1,12 @@
 [
   { "field": "TransactionTime", "header": "TransactionTime"},
-  { "field": "Product", "childfield": "ProductDescription", "header": "Product"},
-  { "field": "Card", "childfield": "TheirCardNumber", "header": "TheirCardNumber"},
-  { "field": "Vehicle", "childfield": "TheirVehicleNumber", "header": "TheirVehicleNumber"},
-  { "field": "Vehicle", "childfield": "Id", "header": "VehicleId"},
-  { "field": "Vehicle", "childfield": "VehicleDescription", "header": "VehicleDescription"},
-  { "field": "Vehicle", "childfield": "CreatedDate", "header": "CreatedDate"},
-  { "field": "Driver", "childfield": "LastName", "header": "LastName"},
-  { "field": "Driver", "childfield": "FirstName", "header": "FirstName"}
+  { "field": "Product", "nestedProperty": "Id", "header": "ProductId"},
+  { "field": "Product", "nestedProperty": "ProductDescription", "header": "Product"},
+  { "field": "Card", "nestedProperty": "TheirCardNumber", "header": "TheirCardNumber"},
+  { "field": "Vehicle", "nestedProperty": "TheirVehicleNumber", "header": "TheirVehicleNumber"},
+  { "field": "Vehicle", "nestedProperty": "Id", "header": "VehicleId"},
+  { "field": "Vehicle", "nestedProperty": "VehicleDescription", "header": "VehicleDescription"},
+  { "field": "Vehicle", "nestedProperty": "CreatedDate", "header": "CreatedDate"},
+  { "field": "Driver", "nestedProperty": "LastName", "header": "LastName"},
+  { "field": "Driver", "nestedProperty": "FirstName", "header": "FirstName"}
 ]

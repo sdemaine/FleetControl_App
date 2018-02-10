@@ -40,16 +40,8 @@
   <ng-template pTemplate="body" let-rowData let-columns="columns" class="myFilteredTable">
     <tr [pSelectableRow]="rowData">
       <td *ngFor="let col of tranCols">
-
-
-        <span *ngIf="!col.hasOwnProperty('childfield')">{{rowData[col.field]}}</span>
-
-        <span *ngIf="col.hasOwnProperty('childfield')">{{rowData[col.field][col.childfield]}}</span>
-
-        <!--<span *ngIf="rowData[col.field][col.childfield]">{{rowData[col.field][col.childfield]}}</span>-->
-
-
-        <!--{{rowData.Vehicle.TheirVehicleNumber}}-->
+        <span *ngIf="!col.hasOwnProperty('nestedProperty')">{{rowData[col.field]}}</span>
+        <span *ngIf="col.hasOwnProperty('nestedProperty')">{{rowData[col.field][col.nestedProperty]}}</span>
       </td>
     </tr>
   </ng-template>

@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {SelectItem} from 'primeng/api';
 import * as gridColumnDefs from './domain/gridColumnDefs/transaction-gridColumnDefs.json'
 
-import * as _ from 'underscore';
-
 import {CarService} from './services/carservice';
 import {Car} from './domain/car';
 import {RepositoryService} from '../services/repository.service';
 import {HttpClient} from '@angular/common/http';
 import {Transaction} from './domain/transaction';
+import {TurboTableColumnDefs} from './domain/gridColumnDefs/turboTableColumnDefs';
 
 
 @Component({
@@ -22,7 +21,7 @@ export class TableFilterDemoComponent implements OnInit {
   transactions: Transaction[];
 
   cols: any[];
-  tranCols: any[];
+  tranCols: TurboTableColumnDefs[];
 
   brands: SelectItem[];
 
