@@ -1,0 +1,11 @@
+[
+  { "field": "TransactionTime", "header": "TransactionTime"},
+  { "field": "Product", "childfield": "ProductDescription", "header": "Product"},
+  { "field": "Card", "childfield": "TheirCardNumber", "header": "TheirCardNumber"},
+  { "field": "Vehicle", "childfield": "TheirVehicleNumber", "header": "TheirVehicleNumber"},
+  { "field": "Vehicle", "childfield": "Id", "header": "VehicleId"},
+  { "field": "Vehicle", "childfield": "VehicleDescription", "header": "VehicleDescription"},
+  { "field": "Vehicle", "childfield": "CreatedDate", "header": "CreatedDate"},
+  { "field": "Driver", "childfield": "LastName", "header": "LastName"},
+  { "field": "Driver", "childfield": "FirstName", "header": "FirstName"}
+]

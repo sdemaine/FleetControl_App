@@ -1,0 +1,113 @@
+<p-table styleClass="prime-table" #dt [columns]="tranCols" [value]="transactions" [reorderableColumns]="true" [paginator]="true" [rows]="30">
+
+
+
+  <ng-template pTemplate="caption">
+    <div style="text-align: right">
+      <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+      <button type="button" pButton icon="fa-file-o" iconPos="left" label="All Data" (click)="dt.exportCSV()" style="float:left"></button>
+      <button type="button" pButton icon="fa-file" iconPos="left" label="Selection Only" (click)="dt.exportCSV({selectionOnly:true})" style="float:right"></button>
+      <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+    </div>
+  </ng-template>
+
+
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns" pReorderableColumn>
+        {{col.header}}
+      </th>
+    </tr>
+    <tr>
+      <th *ngFor="let col of columns" [ngSwitch]="col.field">
+        <input *ngSwitchCase="'vin'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+
+
+        <div *ngSwitchCase="'year'">
+          {{yearFilter}}
+          <i class="fa fa-close" (click)="yearFilter=null;dt.filter(null, col.field, col.filterMatchMode)" style="cursor:pointer"></i>
+          <p-slider [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="yearFilter" [min]="1970" [max]="2010" (onChange)="onYearChange($event, dt)"></p-slider>
+        </div>
+
+
+        <p-dropdown *ngSwitchCase="'brand'" [options]="brands" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
+        <p-multiSelect *ngSwitchCase="'color'" [options]="colors" defaultLabel="All Colors" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+      </th>
+    </tr>
+  </ng-template>
+
+
+  <ng-template pTemplate="body" let-rowData let-columns="columns" class="myFilteredTable">
+    <tr [pSelectableRow]="rowData">
+      <td *ngFor="let col of tranCols">
+
+
+        <span *ngIf="!col.hasOwnProperty('childfield')">{{rowData[col.field]}}</span>
+
+        <span *ngIf="col.hasOwnProperty('childfield')">{{rowData[col.field][col.childfield]}}</span>
+
+        <!--<span *ngIf="rowData[col.field][col.childfield]">{{rowData[col.field][col.childfield]}}</span>-->
+
+
+        <!--{{rowData.Vehicle.TheirVehicleNumber}}-->
+      </td>
+    </tr>
+  </ng-template>
+
+  <!--<ng-template pTemplate="body" let-transaction let-columns="columns" class="myFilteredTable">-->
+    <!--<tr [pSelectableRow]="transaction">-->
+      <!--<td>{{transaction.TransactionDate}}</td>-->
+      <!--<td>{{transaction.Vehicle.TheirVehicleNumber}}</td>-->
+
+    <!--</tr>-->
+  <!--</ng-template>-->
+
+</p-table>
+
+
+
+<!--<p-table [value]="transactions">-->
+  <!--&lt;!&ndash;<p-column *ngFor="let col of tranCols" [field]="col.field" [header]="col.header"></p-column>&ndash;&gt;-->
+
+  <!--<ng-template pTemplate="body" let-transaction>-->
+    <!--<tr>-->
+      <!--<td *ngFor="let col of tranCols">-->
+        <!--{{transaction[col.field]}}-->
+      <!--</td>-->
+    <!--</tr>-->
+  <!--</ng-template>-->
+
+<!--</p-table>-->
+
+
+<!--<p-table [columns]="tranCols" [value]="transactions" [reorderableColumns]="true">-->
+  <!--<ng-template pTemplate="header" let-columns>-->
+    <!--<tr>-->
+      <!--<th *ngFor="let col of columns" pReorderableColumn>-->
+        <!--{{col.header}}-->
+      <!--</th>-->
+    <!--</tr>-->
+  <!--</ng-template>-->
+  <!--<ng-template pTemplate="body" let-rowData let-columns="columns">-->
+    <!--<tr>-->
+      <!--<td *ngFor="let col of columns">-->
+        <!--{{rowData[col.field]}}-->
+      <!--</td>-->
+    <!--</tr>-->
+  <!--</ng-template>-->
+<!--</p-table>-->
+
+
+
+
+<!--<p-dataTable #dt2 [value]="transactions" tableStyleClass="table table-hover table-striped">-->
+  <!--<p-header>Transactions</p-header>-->
+  <!--<p-column field="TransactionDate" header="TranDate" [sortable]="true"></p-column>-->
+  <!--<p-column field="Vehicle" header="Vehicle">-->
+    <!--<ng-template let-transaction="rowData" pTemplate="body">-->
+      <!--<ul>-->
+        <!--{{transaction.Vehicle.VehicleDescription}}-->
+      <!--</ul>-->
+    <!--</ng-template>-->
+  <!--</p-column>-->
+<!--</p-dataTable>-->

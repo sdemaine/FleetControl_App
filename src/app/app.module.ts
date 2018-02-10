@@ -24,12 +24,18 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 
 import { CarListComponent } from './car/car-list/car-list.component';
 import {TableModule} from 'primeng/components/table/table';
-import {DataTableModule, MultiSelectModule} from 'primeng/primeng';
+import {DataTableModule, Dropdown, MultiSelectModule} from 'primeng/primeng';
 import {FormsModule} from '@angular/forms';
 
 import {SharedModule} from 'primeng/primeng';
 import { TransactionComponent } from './transaction/transaction.component';
 import {TransactionService} from './transaction/transaction.service';
+import {RepositoryService} from './services/repository.service';
+import { PrimetableComponent } from './primetable/primetable.component';
+import { TableFilterDemoComponent } from './primeng/table-filter-demo.component';
+import {Slider} from 'primeng/slider';
+import {DropdownModule} from 'primeng/components/dropdown/dropdown';
+import {CarService} from './primeng/services/carservice';
 
 
 // routing - this needs to be moved to a separate file
@@ -66,7 +72,10 @@ const appRoutes: Routes = [
     ProductListComponent,
     ProductDetailsComponent,
     CarListComponent,
-    TransactionComponent
+    TransactionComponent,
+    PrimetableComponent,
+    TableFilterDemoComponent,
+    Slider
   ],
   imports: [
     RouterModule.forRoot(
@@ -80,12 +89,13 @@ const appRoutes: Routes = [
     HttpClientModule,
     AngularFontAwesomeModule,
     TableModule,
+    DropdownModule,
     DataTableModule,
     MultiSelectModule,
     ButtonModule,
     SplitButtonModule
   ],
-  providers: [TransactionService],
+  providers: [TransactionService, RepositoryService, CarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
