@@ -1,5 +1,7 @@
 [
+  { "field": "TransactionDate", "header": "TransactionDate"},
   { "field": "TransactionTime", "header": "TransactionTime"},
+  { "field": "TotalProductUnits", "header": "AmtGal"},
   { "field": "Product", "nestedProperty": "Id", "header": "ProductId"},
   { "field": "Product", "nestedProperty": "ProductDescription", "header": "Product"},
   { "field": "Card", "nestedProperty": "TheirCardNumber", "header": "TheirCardNumber"},

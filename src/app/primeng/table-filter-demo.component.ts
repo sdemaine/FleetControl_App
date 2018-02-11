@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SelectItem} from 'primeng/api';
-import * as gridColumnDefs from './domain/gridColumnDefs/transaction-gridColumnDefs.json'
+// import * as gridColumnDefs from './domain/gridColumnDefs/transaction-gridColumnDefs.json'
 
 import {CarService} from './services/carservice';
 import {Car} from './domain/car';
@@ -97,7 +97,25 @@ export class TableFilterDemoComponent implements OnInit {
       { field: 'color', header: 'Color' }
     ];
 
-    this.tranCols = gridColumnDefs;
+    this.tranCols = [
+      { "field": "TransactionDate", "header": "TransactionDate"},
+      { "field": "TransactionTime", "header": "TransactionTime"},
+      { "field": "TotalProductUnits", "header": "AmtGal"},
+      { "field": "Product", "nestedProperty": "Id", "header": "ProductId"},
+      { "field": "Product", "nestedProperty": "ProductDescription", "header": "Product"},
+      { "field": "Card", "nestedProperty": "TheirCardNumber", "header": "TheirCardNumber"},
+      { "field": "Vehicle", "nestedProperty": "TheirVehicleNumber", "header": "TheirVehicleNumber"},
+      { "field": "Vehicle", "nestedProperty": "Id", "header": "VehicleId"},
+      { "field": "Vehicle", "nestedProperty": "VehicleDescription", "header": "VehicleDescription"},
+      { "field": "Vehicle", "nestedProperty": "CreatedDate", "header": "CreatedDate"},
+      { "field": "Driver", "nestedProperty": "LastName", "header": "LastName"},
+      { "field": "Driver", "nestedProperty": "FirstName", "header": "FirstName"}
+    ];
+    // gridColumnDefs;
+
+
+
+
   }
 
   onYearChange(event, dt) {
